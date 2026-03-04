@@ -1,0 +1,8 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="30" cy="30" r="25" stroke="#1B4332" stroke-width="3" fill="none"/>
+  <path d="M30 10 Q40 20 30 30 Q20 20 30 10" fill="#2D6A4F"/>
+  <path d="M20 30 Q25 40 20 50 Q15 40 20 30" fill="#2D6A4F"/>
+  <path d="M40 30 Q45 40 40 50 Q35 40 40 30" fill="#2D6A4F"/>
+  <text x="65" y="38" font-family="Arial, sans-serif" font-size="24" fill="#1B4332" font-weight="bold">BOHLOEKI</text>
+  <text x="65" y="52" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Purity in Action</text>
+</svg>

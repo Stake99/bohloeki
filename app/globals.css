@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary colors */
+  --color-primary-forest: #1b4332;
+  --color-primary-forest-light: #2d6a4f;
+  --color-primary-forest-dark: #081c15;
+  
+  /* Neutral colors */
+  --color-neutral-black: #1c1c1c;
+  --color-neutral-white: #ffffff;
+  --color-neutral-gray-50: #f9fafb;
+  --color-neutral-gray-100: #f3f4f6;
+  --color-neutral-gray-200: #e5e7eb;
+  --color-neutral-gray-300: #d1d5db;
+  --color-neutral-gray-400: #9ca3af;
+  --color-neutral-gray-500: #6b7280;
+  --color-neutral-gray-600: #4b5563;
+  --color-neutral-gray-700: #374151;
+  --color-neutral-gray-800: #1f2937;
+  --color-neutral-gray-900: #111827;
+  
+  /* Accent colors */
+  --color-accent-gold: #d4af37;
+  --color-accent-gold-light: #e5c158;
+  
+  /* Semantic colors */
+  --color-semantic-success: #10b981;
+  --color-semantic-error: #ef4444;
+  --color-semantic-warning: #f59e0b;
+  --color-semantic-info: #3b82f6;
+}
+
+@layer base {
+  body {
+    @apply text-neutral-black bg-neutral-white;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold;
+  }
+
+  h1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight;
+  }
+
+  h2 {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight;
+  }
+
+  h3 {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-semibold leading-normal;
+  }
+
+  h4 {
+    @apply text-xl sm:text-2xl lg:text-3xl font-semibold leading-normal;
+  }
+
+  p {
+    @apply text-base lg:text-lg leading-relaxed;
+  }
+}
+
+@layer utilities {
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-forest focus:ring-offset-2;
+  }
+}
+
+/* Accessibility: Focus indicators for keyboard navigation */
+@layer base {
+  /* Focus-visible styles for better keyboard navigation */
+  *:focus-visible {
+    outline: 2px solid var(--color-primary-forest);
+    outline-offset: 2px;
+  }
+
+  /* Enhanced focus styles for interactive elements */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--color-primary-forest);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(27, 67, 50, 0.1);
+  }
+
+  /* Remove default focus outline for mouse users */
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* Accessibility: Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Glassmorphism utilities */
+@layer utilities {
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl border border-white/20 shadow-xl;
+  }
+  
+  .glass-dark {
+    @apply bg-black/30 backdrop-blur-xl border border-white/10 shadow-2xl;
+  }
+  
+  .glass-hover {
+    @apply hover:bg-white/90 hover:shadow-2xl transition-all duration-300;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-neutral-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-forest);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-forest-light);
+}
