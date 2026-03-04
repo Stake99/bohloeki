@@ -46,8 +46,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-bad-script)', 'cursive', 'system-ui'],
+        display: ['var(--font-bad-script)', 'cursive', 'system-ui'],
       },
       fontSize: {
         xs: '0.75rem',      // 12px

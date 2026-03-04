@@ -1,14 +1,15 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Bad_Script } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { StructuredData } from '@/lib/structured-data';
 
-const inter = Inter({
+const badScript = Bad_Script({
+  weight: '400',
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-bad-script',
 });
 
 export const metadata: Metadata = {
@@ -30,11 +31,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={badScript.variable}>
       <head>
         <StructuredData />
       </head>
-      <body className={inter.className}>
+      <body className={badScript.className}>
         <Header />
         <main>{children}</main>
         <Footer />

@@ -212,8 +212,8 @@ export default function ContactPage() {
           <SlideIn delay={0.2} direction="up">
             <div className="bg-gray-300 rounded-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300" style={{ height: '400px' }}>
               <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-forest to-primary-forestLight">
-                <div className="text-center text-white p-8">
-                  <AnimatedIcon variant="bounce" className="mx-auto mb-4">
+                <div className="text-center text-white p-8 flex flex-col items-center">
+                  <AnimatedIcon variant="bounce" className="mb-4">
                     <MapPin className="w-16 h-16 opacity-80" />
                   </AnimatedIcon>
                   <p className="text-xl font-semibold mb-2">
