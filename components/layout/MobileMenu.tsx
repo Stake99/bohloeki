@@ -119,28 +119,28 @@ export function MobileMenu({
               damping: 30,
               stiffness: 300,
             }}
-            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-gradient-to-br from-primary-forest/95 via-primary-forest/95 to-primary-sage/95 backdrop-blur-xl shadow-2xl border-l-4 border-accent-gold z-50 lg:hidden"
+            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-gradient-to-br from-white via-gray-50 to-accent-goldLight/30 backdrop-blur-xl shadow-2xl border-l-4 border-accent-gold z-50 lg:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation menu"
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-white/20">
-              <h2 className="text-lg font-bold text-black">Menu</h2>
+            <div className="flex items-center justify-between p-6 border-b-2 border-accent-gold/30">
+              <h2 className="text-2xl font-bold text-primary-forestDark">Menu</h2>
               <button
                 ref={closeButtonRef}
                 type="button"
                 onClick={onClose}
-                className="p-2 rounded-md text-black hover:bg-white/20 transition-colors"
+                className="p-2 rounded-lg bg-accent-gold/20 text-primary-forestDark hover:bg-accent-gold/40 transition-all hover:scale-110"
                 aria-label="Close menu"
               >
-                <X className="h-6 w-6" aria-hidden="true" />
+                <X className="h-7 w-7" aria-hidden="true" />
               </button>
             </div>
 
             {/* Navigation Links */}
-            <nav className="p-4" aria-label="Mobile navigation">
-              <ul className="space-y-2">
+            <nav className="p-6" aria-label="Mobile navigation">
+              <ul className="space-y-3">
                 {links.map((link, index) => (
                   <motion.li
                     key={link.href}
@@ -151,10 +151,10 @@ export function MobileMenu({
                     <Link
                       href={link.href}
                       onClick={onClose}
-                      className={`block px-4 py-3 rounded-lg text-base font-bold transition-all ${
+                      className={`block px-6 py-4 rounded-xl text-lg font-bold transition-all ${
                         isActiveLink(link.href)
-                          ? 'bg-accent-gold text-black shadow-lg'
-                          : 'text-black hover:bg-white/20 hover:translate-x-1'
+                          ? 'bg-gradient-to-r from-accent-gold to-accent-goldLight text-primary-forestDark shadow-xl shadow-accent-gold/30 scale-105'
+                          : 'bg-white text-primary-forestDark hover:bg-accent-gold/20 hover:translate-x-2 hover:shadow-lg border-2 border-gray-200 hover:border-accent-gold/50'
                       }`}
                       aria-current={isActiveLink(link.href) ? 'page' : undefined}
                     >
