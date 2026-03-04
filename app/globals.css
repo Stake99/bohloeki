@@ -36,7 +36,7 @@
 @layer base {
   body {
     @apply text-neutral-black bg-neutral-white;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: var(--font-julius-sans-one), 'Julius Sans One', system-ui, sans-serif;
   }
 
   h1,
@@ -45,7 +45,8 @@
   h4,
   h5,
   h6 {
-    @apply font-semibold;
+    @apply font-normal;
+    font-family: var(--font-julius-sans-one), 'Julius Sans One', system-ui, sans-serif;
   }
 
   h1 {

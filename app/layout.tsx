@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
-import { Bad_Script } from 'next/font/google';
+import { Julius_Sans_One } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { StructuredData } from '@/lib/structured-data';
 
-const badScript = Bad_Script({
+const juliusSansOne = Julius_Sans_One({
   weight: '400',
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-bad-script',
+  variable: '--font-julius-sans-one',
 });
 
 export const metadata: Metadata = {
@@ -31,11 +31,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={badScript.variable}>
+    <html lang="en" className={juliusSansOne.variable}>
       <head>
         <StructuredData />
       </head>
-      <body className={`${badScript.className} bg-black`}>
+      <body className={`${juliusSansOne.className} bg-black`}>
         <Header />
         <main>{children}</main>
         <Footer />
