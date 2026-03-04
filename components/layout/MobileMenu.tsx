@@ -103,7 +103,7 @@ export function MobileMenu({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 lg:hidden"
             onClick={onClose}
             aria-hidden="true"
           />
@@ -119,19 +119,19 @@ export function MobileMenu({
               damping: 30,
               stiffness: 300,
             }}
-            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white shadow-2xl z-50 lg:hidden"
+            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-gradient-to-br from-primary-forest/95 via-primary-forest/95 to-primary-sage/95 backdrop-blur-xl shadow-2xl border-l-4 border-accent-gold z-50 lg:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation menu"
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-neutral-200">
-              <h2 className="text-lg font-semibold text-neutral-900">Menu</h2>
+            <div className="flex items-center justify-between p-4 border-b border-white/20">
+              <h2 className="text-lg font-bold text-black">Menu</h2>
               <button
                 ref={closeButtonRef}
                 type="button"
                 onClick={onClose}
-                className="p-2 rounded-md text-neutral-600 hover:bg-neutral-100 transition-colors"
+                className="p-2 rounded-md text-black hover:bg-white/20 transition-colors"
                 aria-label="Close menu"
               >
                 <X className="h-6 w-6" aria-hidden="true" />
@@ -141,21 +141,26 @@ export function MobileMenu({
             {/* Navigation Links */}
             <nav className="p-4" aria-label="Mobile navigation">
               <ul className="space-y-2">
-                {links.map((link) => (
-                  <li key={link.href}>
+                {links.map((link, index) => (
+                  <motion.li
+                    key={link.href}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
                     <Link
                       href={link.href}
                       onClick={onClose}
-                      className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                      className={`block px-4 py-3 rounded-lg text-base font-bold transition-all ${
                         isActiveLink(link.href)
-                          ? 'bg-primary-forest text-white'
-                          : 'text-neutral-700 hover:bg-neutral-100'
+                          ? 'bg-accent-gold text-black shadow-lg'
+                          : 'text-black hover:bg-white/20 hover:translate-x-1'
                       }`}
                       aria-current={isActiveLink(link.href) ? 'page' : undefined}
                     >
                       {link.label}
                     </Link>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </nav>
