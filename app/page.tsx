@@ -90,12 +90,24 @@ export default function Home() {
       <ServicesOverview services={services} variant="grid" />
 
       {/* Sustainability Commitment Section */}
-      <Section spacing="lg" background="gradient">
-        <Container size="lg">
+      <section className="relative py-16 lg:py-24 overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/images/background/man-collecting-scattered-plastic-bottles-from-ground.jpg)',
+          }}
+        >
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+        </div>
+
+        {/* Content */}
+        <Container size="lg" className="relative z-10">
           <FadeIn>
             <div className="text-center max-w-3xl mx-auto">
               <AnimatedIcon variant="float" className="inline-block mb-6">
-                <div className="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full">
+                <div className="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full backdrop-blur-sm">
                   <Leaf className="w-8 h-8 text-white" />
                 </div>
               </AnimatedIcon>
@@ -128,7 +140,7 @@ export default function Home() {
             </div>
           </FadeIn>
         </Container>
-      </Section>
+      </section>
 
       {/* Value Proposition Cards */}
       <Section spacing="lg" background="white">
