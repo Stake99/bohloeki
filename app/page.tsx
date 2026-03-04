@@ -1,13 +1,32 @@
 import { generatePageMetadata } from '@/lib/metadata';
-import { Hero, StatsSection, ServicesOverview } from '@/components/sections';
+import dynamic from 'next/dynamic';
+import { WhyChooseBohloeki } from '@/components/sections/WhyChooseBohloeki';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
-import { FadeIn } from '@/components/animations/FadeIn';
-import { SlideIn } from '@/components/animations/SlideIn';
+import { GlassPanel } from '@/components/ui/GlassPanel';
+import { ScrollReveal } from '@/components/animations/ScrollReveal';
+import { MagneticButton } from '@/components/animations/MagneticButton';
 import { AnimatedIcon } from '@/components/animations/AnimatedIcon';
 import { productionMetrics } from '@/lib/constants';
-import { Recycle, Droplet, Trash2, Leaf, Users, TrendingUp } from 'lucide-react';
+import { Recycle, Droplet, Trash2, Leaf } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
+
+// Dynamic imports for 3D components to prevent SSR issues
+const Hero3DEnhanced = dynamic(
+  () => import('@/components/sections/Hero3DEnhanced').then(mod => ({ default: mod.Hero3DEnhanced })),
+  { ssr: false }
+);
+
+const StatsSection3D = dynamic(
+  () => import('@/components/sections/StatsSection3D').then(mod => ({ default: mod.StatsSection3D })),
+  { ssr: false }
+);
+
+const ServicesOverview3D = dynamic(
+  () => import('@/components/sections/ServicesOverview3D').then(mod => ({ default: mod.ServicesOverview3D })),
+  { ssr: false }
+);
 
 export const metadata = generatePageMetadata({
   title: 'Bohloeki Enterprises | Turning Waste Into Sustainable Energy',
@@ -30,17 +49,20 @@ export default function Home() {
       suffix: 'L',
       label: 'Monthly Production',
       icon: <Droplet className="w-12 h-12" />,
+      description: 'Sustainable burner oil produced monthly',
     },
     {
       value: productionMetrics.supplierCount,
       label: 'Active Suppliers',
       icon: <Recycle className="w-12 h-12" />,
+      description: 'Community partners across Lesotho',
     },
     {
       value: productionMetrics.projectedProduction,
       suffix: 'L',
       label: 'Growth Projection',
       icon: <Trash2 className="w-12 h-12" />,
+      description: 'Expanding capacity for greater impact',
     },
   ];
 
@@ -73,168 +95,111 @@ export default function Home() {
 
   return (
     <>
-      <Hero
+      <Hero3DEnhanced
         headline="Turning Waste Into Sustainable Energy"
         subheadline="Leading eco-friendly waste management and industrial burner oil production in Lesotho"
-        ctaText="Learn More About Our Services"
+        ctaText="Explore Our Services"
         ctaHref="/services"
         backgroundImage="/images/background/waste management pictures for website backgrounds.jpg"
+        show3D={true}
       />
 
-      <StatsSection
+      <StatsSection3D
         stats={stats}
         title="Our Impact in Numbers"
         description="Driving sustainable growth through innovation and community partnership"
       />
 
-      <ServicesOverview services={services} variant="grid" />
+      <ServicesOverview3D
+        services={services}
+        title="Sustainable Solutions"
+        description="Transforming waste into valuable resources for a cleaner future"
+      />
 
-      {/* Sustainability Commitment Section */}
-      <section className="relative py-16 lg:py-24 overflow-hidden">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url(/images/background/man-collecting-scattered-plastic-bottles-from-ground.jpg)',
-          }}
-        >
-          {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+      {/* Sustainability Commitment Section with Parallax */}
+      <section className="relative py-24 lg:py-32 overflow-hidden">
+        {/* Parallax Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/background/man-collecting-scattered-plastic-bottles-from-ground.jpg"
+            alt="Sustainability commitment"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/80" />
         </div>
 
         {/* Content */}
         <Container size="lg" className="relative z-10">
-          <FadeIn>
-            <div className="text-center max-w-3xl mx-auto">
-              <AnimatedIcon variant="float" className="inline-block mb-6">
-                <div className="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full backdrop-blur-sm">
-                  <Leaf className="w-8 h-8 text-white" />
+          <ScrollReveal direction="up">
+            <GlassPanel variant="dark" className="text-center max-w-4xl mx-auto">
+              <AnimatedIcon variant="float" className="inline-block mb-8">
+                <div className="flex items-center justify-center w-20 h-20 bg-accent-gold/20 rounded-full backdrop-blur-sm border-2 border-accent-gold/30">
+                  <Leaf className="w-10 h-10 text-accent-gold" />
                 </div>
               </AnimatedIcon>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-white">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 text-white">
                 Committed to Sustainability
               </h2>
-              <p className="text-lg lg:text-xl text-gray-100 mb-8 leading-relaxed">
+              <p className="text-xl lg:text-2xl text-gray-200 mb-10 leading-relaxed">
                 At Bohloeki, we believe in creating a cleaner, greener future for Lesotho. 
                 Our innovative waste-to-energy solutions not only protect the environment 
                 but also create jobs and empower local communities.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <SlideIn delay={0.3} direction="up">
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <MagneticButton>
                   <Link
                     href="/impact"
-                    className="inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-lg bg-white text-primary-forest hover:bg-gray-100 hover:scale-105 transition-all duration-200"
+                    className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl bg-accent-gold text-primary-forestDark hover:bg-accent-goldLight transition-all duration-300 shadow-lg hover:shadow-accent-gold/50"
                   >
                     View Our Impact
                   </Link>
-                </SlideIn>
-                <SlideIn delay={0.5} direction="up">
+                </MagneticButton>
+                <MagneticButton>
                   <Link
                     href="/about"
-                    className="inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-lg border-2 border-white text-white hover:bg-white hover:text-primary-forest hover:scale-105 transition-all duration-200"
+                    className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl border-2 border-white/30 text-white backdrop-blur-xl bg-white/10 hover:bg-white/20 transition-all duration-300"
                   >
                     Our Story
                   </Link>
-                </SlideIn>
+                </MagneticButton>
               </div>
-            </div>
-          </FadeIn>
+            </GlassPanel>
+          </ScrollReveal>
         </Container>
       </section>
 
-      {/* Value Proposition Cards */}
-      <Section spacing="lg" background="white">
-        <Container size="lg">
-          <FadeIn>
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                Why Choose Bohloeki
-              </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Leading the way in sustainable waste management and energy production
-              </p>
-            </div>
-          </FadeIn>
+      {/* Why Choose Bohloeki - Cinematic Parallax Timeline */}
+      <WhyChooseBohloeki />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <SlideIn delay={0.2} direction="up">
-              <div className="bg-gray-50 rounded-xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <AnimatedIcon variant="pulse" delay={0.3} className="inline-block mb-4">
-                  <div className="flex items-center justify-center w-16 h-16 bg-primary-forest rounded-full">
-                    <Leaf className="w-8 h-8 text-white" />
-                  </div>
-                </AnimatedIcon>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  Environmental Impact
-                </h3>
-                <p className="text-base text-gray-600">
-                  Reducing waste, preventing pollution, and protecting Lesotho&apos;s natural resources
-                </p>
-              </div>
-            </SlideIn>
-
-            <SlideIn delay={0.4} direction="up">
-              <div className="bg-gray-50 rounded-xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <AnimatedIcon variant="bounce" delay={0.5} className="inline-block mb-4">
-                  <div className="flex items-center justify-center w-16 h-16 bg-primary-forest rounded-full">
-                    <Users className="w-8 h-8 text-white" />
-                  </div>
-                </AnimatedIcon>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  Community Empowerment
-                </h3>
-                <p className="text-base text-gray-600">
-                  Creating jobs, supporting suppliers, and building sustainable livelihoods
-                </p>
-              </div>
-            </SlideIn>
-
-            <SlideIn delay={0.6} direction="up">
-              <div className="bg-gray-50 rounded-xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <AnimatedIcon variant="swing" delay={0.7} className="inline-block mb-4">
-                  <div className="flex items-center justify-center w-16 h-16 bg-primary-forest rounded-full">
-                    <TrendingUp className="w-8 h-8 text-white" />
-                  </div>
-                </AnimatedIcon>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  Sustainable Growth
-                </h3>
-                <p className="text-base text-gray-600">
-                  Expanding operations to serve all of Lesotho with clean energy solutions
-                </p>
-              </div>
-            </SlideIn>
-          </div>
-        </Container>
-      </Section>
-
-      {/* CTA Section */}
+      {/* CTA Section with Magnetic Effect */}
       <Section spacing="lg">
         <Container size="lg">
-          <SlideIn direction="up">
-            <div className="bg-primary-forest rounded-2xl p-8 lg:p-12 text-center hover:shadow-2xl transition-shadow duration-300">
-              <AnimatedIcon variant="scale" className="inline-block mb-6">
-                <div className="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full">
-                  <Recycle className="w-8 h-8 text-white" />
+          <ScrollReveal direction="up">
+            <GlassPanel variant="dark" className="text-center bg-gradient-to-br from-primary-forest to-primary-forestDark">
+              <AnimatedIcon variant="scale" className="inline-block mb-8">
+                <div className="flex items-center justify-center w-20 h-20 bg-accent-gold/20 rounded-full border-2 border-accent-gold/30">
+                  <Recycle className="w-10 h-10 text-accent-gold" />
                 </div>
               </AnimatedIcon>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
+              <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
                 Partner With Us
               </h2>
-              <p className="text-lg lg:text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
+              <p className="text-xl lg:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto leading-relaxed">
                 Join our growing network of suppliers and partners. Together, we can 
                 build a sustainable future for Lesotho.
               </p>
-              <SlideIn delay={0.3} direction="up">
+              <MagneticButton>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-lg bg-white text-primary-forest hover:bg-gray-100 hover:scale-105 transition-all duration-200"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold rounded-2xl bg-accent-gold text-primary-forestDark hover:bg-accent-goldLight transition-all duration-300 shadow-xl hover:shadow-accent-gold/50"
                 >
                   Get in Touch
                 </Link>
-              </SlideIn>
-            </div>
-          </SlideIn>
+              </MagneticButton>
+            </GlassPanel>
+          </ScrollReveal>
         </Container>
       </Section>
     </>

@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import { navigationLinks } from '@/lib/constants';
 import { Menu } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
+import { DarkModeToggle } from '@/components/ui/DarkModeToggle';
 import Image from 'next/image';
 
 export interface HeaderProps {
@@ -41,7 +42,7 @@ export function Header({ className = '' }: HeaderProps) {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/80 backdrop-blur-xl shadow-lg border-b border-white/20'
+          ? 'bg-primary-forestDark/90 backdrop-blur-xl shadow-lg border-b border-white/10'
           : 'bg-gradient-to-b from-black/30 to-transparent backdrop-blur-sm'
       } ${className}`}
     >
@@ -59,7 +60,7 @@ export function Header({ className = '' }: HeaderProps) {
               height={45}
               priority
               className={`transition-all duration-300 ${
-                isScrolled ? 'brightness-100' : 'brightness-0 invert'
+                isScrolled ? 'brightness-0 invert' : ''
               }`}
             />
           </Link>
@@ -83,10 +84,10 @@ export function Header({ className = '' }: HeaderProps) {
                     <motion.span
                       className="absolute inset-0 rounded-lg backdrop-blur-sm"
                       style={{
-                        backgroundColor: isScrolled ? 'rgba(212, 175, 55, 0.25)' : 'rgba(212, 175, 55, 0.35)',
+                        backgroundColor: 'rgba(212, 175, 55, 0.25)',
                         borderWidth: '1px',
                         borderStyle: 'solid',
-                        borderColor: isScrolled ? 'rgba(212, 175, 55, 0.4)' : 'rgba(229, 193, 88, 0.5)',
+                        borderColor: 'rgba(229, 193, 88, 0.4)',
                       }}
                       initial={{ scale: 0, opacity: 0 }}
                       whileHover={{ scale: 1, opacity: 1 }}
@@ -94,15 +95,11 @@ export function Header({ className = '' }: HeaderProps) {
                     />
                   )}
                   
-                  {/* Active background - White/Silver */}
+                  {/* Active background - Gold/White */}
                   {isActiveLink(link.href) && (
                     <motion.span
                       layoutId="activeNav"
-                      className={`absolute inset-0 rounded-lg backdrop-blur-sm ${
-                        isScrolled
-                          ? 'bg-white/90 border border-gray-200 shadow-md'
-                          : 'bg-white/30 border border-white/40'
-                      }`}
+                      className="absolute inset-0 rounded-lg backdrop-blur-sm bg-accent-gold/30 border border-accent-gold/50"
                       transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -111,11 +108,7 @@ export function Header({ className = '' }: HeaderProps) {
                   <motion.span
                     className={`relative text-sm font-medium transition-colors ${
                       isActiveLink(link.href)
-                        ? isScrolled
-                          ? 'text-primary-forest font-semibold'
-                          : 'text-white font-semibold'
-                        : isScrolled
-                        ? 'text-neutral-700 group-hover:text-accent-gold group-hover:font-semibold'
+                        ? 'text-white font-semibold'
                         : 'text-white/90 group-hover:text-accent-goldLight group-hover:font-semibold'
                     }`}
                     whileHover={{ scale: 1.05 }}
@@ -127,9 +120,7 @@ export function Header({ className = '' }: HeaderProps) {
                   {/* Underline animation - Only for hover, not active */}
                   {!isActiveLink(link.href) && (
                     <motion.span
-                      className={`absolute bottom-0 left-0 right-0 h-0.5 ${
-                        isScrolled ? 'bg-accent-gold' : 'bg-accent-goldLight'
-                      }`}
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent-goldLight"
                       initial={{ scaleX: 0 }}
                       whileHover={{ scaleX: 1 }}
                       transition={{ duration: 0.3 }}
@@ -139,16 +130,17 @@ export function Header({ className = '' }: HeaderProps) {
                 </Link>
               </motion.div>
             ))}
+            
+            {/* Dark Mode Toggle */}
+            <div className="ml-4">
+              <DarkModeToggle />
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
           <motion.button
             type="button"
-            className={`lg:hidden p-2 rounded-lg transition-all ${
-              isScrolled
-                ? 'text-primary-forest hover:bg-primary-forest/10'
-                : 'text-white hover:bg-white/20'
-            }`}
+            className="lg:hidden p-2 rounded-lg transition-all text-white hover:bg-white/20"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Open menu"
             aria-expanded={isMobileMenuOpen}

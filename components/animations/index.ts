@@ -7,3 +7,6 @@ export { ParallaxSection } from './ParallaxSection';
 export type { ParallaxSectionProps } from './ParallaxSection';
 export { StaggeredList } from './StaggeredList';
 export type { StaggeredListProps } from './StaggeredList';
+export { ScrollReveal } from './ScrollReveal';
+export { ParallaxLayer } from './ParallaxLayer';
+export { MagneticButton } from './MagneticButton';

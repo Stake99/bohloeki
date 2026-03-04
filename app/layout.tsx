@@ -35,7 +35,7 @@ export default function RootLayout({
       <head>
         <StructuredData />
       </head>
-      <body className={badScript.className}>
+      <body className={`${badScript.className} bg-black`}>
         <Header />
         <main>{children}</main>
         <Footer />

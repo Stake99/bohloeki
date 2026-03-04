@@ -17,3 +17,6 @@ export type { SectionProps } from './Section';
 
 export { AnimatedCounter } from './AnimatedCounter';
 export type { AnimatedCounterProps } from './AnimatedCounter';
+export { GlassCard } from './GlassCard';
+export { GlassPanel } from './GlassPanel';
+export { DarkModeToggle } from './DarkModeToggle';

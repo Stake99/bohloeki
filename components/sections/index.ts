@@ -20,3 +20,13 @@ export type { ImpactMetric, ImpactMetricsProps } from './ImpactMetrics';
 
 export { ContactForm } from './ContactForm';
 export type { ContactFormProps } from './ContactForm';
+export { Hero3DEnhanced } from './Hero3DEnhanced';
+export { StatsSection3D } from './StatsSection3D';
+export { ServicesOverview3D } from './ServicesOverview3D';
+export { TimelineSection } from './TimelineSection';
+export { WhyChooseBohloeki } from './WhyChooseBohloeki';
+export { OurJourneyTimeline } from './OurJourneyTimeline';
+export { ServiceProcessTimeline } from './ServiceProcessTimeline';
+export { OperationsWorkflowTimeline } from './OperationsWorkflowTimeline';
+export { ImpactTimeline } from './ImpactTimeline';
+export { PartnershipJourneyTimeline } from './PartnershipJourneyTimeline';

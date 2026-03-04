@@ -64,6 +64,22 @@ const nextConfig = {
     // Enable optimized package imports
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
+  
+  // Webpack configuration for Three.js
+  webpack: (config, { isServer }) => {
+    // Handle Three.js on the server
+    if (isServer) {
+      config.externals = [...(config.externals || []), 'three'];
+    }
+    
+    // Ensure proper module resolution for Three.js
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      three: 'three',
+    };
+    
+    return config;
+  },
 };
 
 module.exports = nextConfig;

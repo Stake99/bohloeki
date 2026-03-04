@@ -1,13 +1,41 @@
 # Bohloeki Enterprises Corporate Website
 
-A production-ready, multi-page Next.js application showcasing Bohloeki Enterprises - an eco-friendly waste management and industrial burner oil producer in Lesotho, Africa.
+A premium, 3D-enhanced, immersive Next.js application showcasing Bohloeki Enterprises - an eco-friendly waste management and industrial burner oil producer in Lesotho, Africa.
+
+## ✨ NEW: 3D Website Upgrade
+
+**The website has been transformed into a next-generation digital experience!**
+
+### 🚀 Quick Start
+```bash
+npm install
+npm run dev
+```
+
+### 📖 Documentation
+- **[START HERE](./START-HERE.md)** ← Begin here for the 3D upgrade
+- [Installation Guide](./INSTALLATION.md) - Setup instructions
+- [Quick Start](./QUICK-START-3D.md) - Feature overview
+- [Component Showcase](./COMPONENT-SHOWCASE.md) - Component library
+- [Migration Guide](./MIGRATION-GUIDE.md) - Upgrade other pages
+
+### 🎨 New Features
+- 🎭 **3D Interactive Elements** - Rotating tire model, floating geometry
+- ✨ **Advanced Animations** - GSAP ScrollTrigger, parallax scrolling
+- 🪟 **Glassmorphism UI** - Premium translucent cards and panels
+- 🌓 **Dark Mode** - System detection + manual toggle
+- 🧲 **Magnetic Interactions** - Buttons that follow cursor
+- 📊 **Animated Counters** - Stats that count up on scroll
+
+---
 
 ## Technology Stack
 
 - **Framework**: Next.js 14+ with App Router
 - **Language**: TypeScript (strict mode)
 - **Styling**: Tailwind CSS with custom design tokens
-- **Animation**: Framer Motion
+- **3D Rendering**: React Three Fiber + Three.js
+- **Animation**: Framer Motion + GSAP
 - **Form Handling**: React Hook Form with Zod validation
 - **Image Optimization**: Next.js Image component
 
@@ -74,10 +102,12 @@ npm run lint
 bohloeki-website/
 ├── app/                    # Next.js App Router pages
 ├── components/             # React components
-│   ├── animations/        # Animation wrappers
+│   ├── 3d/                # 3D components (NEW)
+│   ├── animations/        # Animation wrappers (ENHANCED)
 │   ├── layout/           # Layout components (Header, Footer)
-│   ├── sections/         # Page section components
-│   └── ui/               # Reusable UI primitives
+│   ├── sections/         # Page section components (ENHANCED)
+│   └── ui/               # Reusable UI primitives (ENHANCED)
+├── hooks/                 # Custom React hooks (NEW)
 ├── lib/                   # Utility functions
 ├── types/                 # TypeScript type definitions
 ├── public/                # Static assets
@@ -88,11 +118,14 @@ bohloeki-website/
 
 ## Features
 
+- 🎭 **3D Interactive Visuals** - React Three Fiber integration
 - 🌍 Multi-page website with 7 distinct pages
 - 📱 Fully responsive design (mobile-first)
 - ♿ WCAG 2.1 AA accessibility compliance
 - 🎨 Custom design system with Tailwind CSS
-- ✨ Smooth animations with Framer Motion
+- ✨ Advanced animations with GSAP + Framer Motion
+- 🪟 Glassmorphism UI components
+- 🌓 Dark mode with system detection
 - 📝 Type-safe forms with React Hook Form and Zod
 - 🖼️ Optimized images with Next.js Image
 - 🔍 SEO optimized with metadata and structured data
