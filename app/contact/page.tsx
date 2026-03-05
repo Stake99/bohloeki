@@ -17,7 +17,11 @@ export default function ContactPage() {
   return (
     <>
       {/* Cinematic Parallax Hero */}
-      <section className="relative h-[40vh] max-h-[300px] sm:h-[50vh] sm:max-h-[400px] lg:h-[60vh] lg:max-h-none xl:min-h-screen xl:h-auto flex items-center justify-center overflow-hidden py-4 sm:py-8 lg:py-12 xl:py-20">
+      <section className="relative h-[250px] sm:h-[350px] lg:h-[400px] xl:h-[500px] 2xl:min-h-screen 2xl:h-auto flex items-center justify-center overflow-hidden py-2 sm:py-4 lg:py-6 xl:py-8 2xl:py-20" 
+               style={{
+                 // For screens with limited height (like 1280x800), use smaller heights
+                 height: 'min(60vh, 400px)'
+               }}>
         {/* Parallax Layer 1 - Slowest Background */}
         <ParallaxLayer speed={0.1} className="absolute inset-0 -z-50">
           <div className="absolute inset-0 bg-gradient-to-br from-primary-forestDark via-black to-primary-forest" />
@@ -228,15 +232,15 @@ export default function ContactPage() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.1 }}
-                  className="hidden sm:block mb-2 sm:mb-3 lg:mb-4 xl:mb-6"
+                  className="hidden sm:block mb-1 sm:mb-2 lg:mb-4 xl:mb-6"
                 >
-                  <div className="inline-flex items-center justify-center w-12 h-12 lg:w-16 lg:h-16 xl:w-24 xl:h-24 bg-accent-gold/20 backdrop-blur-md rounded-full border-2 border-accent-gold/30 mb-2 sm:mb-3 lg:mb-4 xl:mb-6">
-                    <Send className="w-6 h-6 lg:w-8 lg:h-8 xl:w-12 xl:h-12 text-accent-gold" />
+                  <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 xl:w-24 xl:h-24 bg-accent-gold/20 backdrop-blur-md rounded-full border-2 border-accent-gold/30 mb-1 sm:mb-2 lg:mb-4 xl:mb-6">
+                    <Send className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 xl:w-12 xl:h-12 text-accent-gold" />
                   </div>
                 </motion.div>
 
                 <motion.h1
-                  className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold mb-2 sm:mb-3 lg:mb-4 xl:mb-6 text-white leading-tight"
+                  className="text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-extrabold mb-1 sm:mb-2 lg:mb-3 xl:mb-4 text-white leading-tight"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
@@ -248,9 +252,9 @@ export default function ContactPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
-                  className="bg-white/10 backdrop-blur-md rounded-lg sm:rounded-xl lg:rounded-2xl p-2 sm:p-3 lg:p-4 xl:p-6 2xl:p-8 border border-white/20"
+                  className="bg-white/10 backdrop-blur-md rounded-md sm:rounded-lg lg:rounded-xl p-2 sm:p-3 lg:p-4 xl:p-6 border border-white/20"
                 >
-                  <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-100 leading-snug sm:leading-relaxed">
+                  <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-100 leading-tight sm:leading-snug lg:leading-relaxed">
                     Have questions about our services or want to become a supplier? 
                     We&apos;re here to help you make a sustainable impact
                   </p>
