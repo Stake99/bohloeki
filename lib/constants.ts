@@ -49,7 +49,7 @@ export const companyInfo: CompanyInfo = {
   name: 'Bohloeki Enterprises',
   tagline: 'Turning Waste Into Sustainable Energy',
   address: {
-    street: 'Maseru Industrial Area',
+    street: 'Lithabeng next to Makoanyane Military Camp',
     city: 'Maseru',
     country: 'Lesotho',
   },
