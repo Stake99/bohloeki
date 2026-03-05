@@ -84,6 +84,14 @@ export default function Home() {
       environmentalImpact: 'Clean-burning alternative to traditional fuels',
     },
     {
+      id: 'plastic-recycling',
+      title: 'Plastic Recycling',
+      description:
+        'Collection and recycling of plastic waste, transforming discarded plastics into reusable materials for a circular economy.',
+      icon: <Recycle className="w-12 h-12" />,
+      environmentalImpact: 'Reduces plastic pollution and promotes sustainable waste management',
+    },
+    {
       id: 'waste-disposal',
       title: 'Liquid Waste Disposal',
       description:
@@ -100,7 +108,7 @@ export default function Home() {
         subheadline="Leading eco-friendly waste management and industrial burner oil production in Lesotho"
         ctaText="Explore Our Services"
         ctaHref="/services"
-        backgroundImage="/images/background/waste management pictures for website backgrounds.jpg"
+        backgroundImage="/images/background/waste management pictures for website backgrounds, with tires as plantation containers.jpg"
         show3D={true}
       />
 
@@ -121,7 +129,7 @@ export default function Home() {
         {/* Parallax Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/background/man-collecting-scattered-plastic-bottles-from-ground.jpg"
+            src="/images/background/waste management pictures for website backgrounds, with tires.jpg"
             alt="Sustainability commitment"
             fill
             className="object-cover"

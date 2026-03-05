@@ -45,6 +45,23 @@ export default function ServicesPage() {
         'Clean-burning fuel that reduces carbon emissions compared to traditional fossil fuels',
     },
     {
+      id: 'plastic-recycling',
+      title: 'Plastic Recycling Services',
+      description:
+        'We collect and recycle various types of plastic waste, transforming discarded plastics into reusable materials. Our plastic recycling program helps reduce environmental pollution while creating value from waste materials and supporting a circular economy in Lesotho.',
+      icon: <Recycle className="w-12 h-12" />,
+      benefits: [
+        'Collection of PET bottles and containers',
+        'HDPE and LDPE plastic recycling',
+        'Community collection programs',
+        'Partnership with local collectors',
+        'Sorting and processing facilities',
+        'Contribution to circular economy',
+      ],
+      environmentalImpact:
+        'Reduces plastic pollution in communities, prevents ocean contamination, and decreases landfill burden',
+    },
+    {
       id: 'liquid-waste-disposal',
       title: 'Liquid Waste Disposal Services',
       description:

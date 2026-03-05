@@ -27,7 +27,7 @@ export default function ContactPage() {
         <ParallaxLayer speed={0.25} className="absolute inset-0 -z-40">
           <div className="absolute inset-0 opacity-20">
             <Image
-              src="/images/background/antoine-giret-7_TSzqJms4w-unsplash.jpg"
+              src="/images/background/waste management pictures for website backgrounds, with tires as plantation containers (1).jpg"
               alt="Contact us"
               fill
               priority

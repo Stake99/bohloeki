@@ -39,8 +39,15 @@ export default function ImpactPage() {
       id: 'suppliers-supported',
       category: 'social' as const,
       value: 60,
-      label: 'Suppliers Supported',
-      description: 'Empowering local entrepreneurs and collectors',
+      label: 'Suppliers in Maseru',
+      description: 'Growing to 80-100 suppliers with district expansion',
+    },
+    {
+      id: 'families-impacted',
+      category: 'social' as const,
+      value: 240,
+      label: 'Families Impacted',
+      description: 'Supporting livelihoods across Maseru communities',
     },
     {
       id: 'local-sourcing',
@@ -267,12 +274,16 @@ export default function ImpactPage() {
                     <p className="text-gray-300 mb-4">Jobs & community empowerment</p>
                     <div className="space-y-2">
                       <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-400">Jobs Created</span>
-                        <span className="text-primary-forestLight font-semibold">60+</span>
+                        <span className="text-gray-400">Suppliers in Maseru</span>
+                        <span className="text-primary-forestLight font-semibold">60</span>
                       </div>
                       <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-400">Families Supported</span>
-                        <span className="text-primary-forestLight font-semibold">100+</span>
+                        <span className="text-gray-400">Families Impacted</span>
+                        <span className="text-primary-forestLight font-semibold">240+</span>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-gray-400">Growth Target</span>
+                        <span className="text-accent-goldLight font-semibold">80-100</span>
                       </div>
                     </div>
                   </div>
@@ -474,13 +485,13 @@ export default function ImpactPage() {
             <SlideIn delay={0.2} direction="up">
               <div className="bg-white rounded-xl p-8 text-center hover:scale-105 transition-transform duration-300 hover:shadow-xl">
                 <div className="text-4xl font-extrabold text-primary-forest mb-3">
-                  60+
+                  60
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  Direct Jobs
+                  Suppliers in Maseru
                 </h3>
                 <p className="text-base text-gray-600">
-                  Suppliers, collectors, and operational staff earning sustainable income
+                  Local entrepreneurs and collectors earning sustainable income
                 </p>
               </div>
             </SlideIn>
@@ -488,13 +499,13 @@ export default function ImpactPage() {
             <SlideIn delay={0.4} direction="up">
               <div className="bg-white rounded-xl p-8 text-center hover:scale-105 transition-transform duration-300 hover:shadow-xl">
                 <div className="text-4xl font-extrabold text-primary-forest mb-3">
-                  100+
+                  240+
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  Families Supported
+                  Families Impacted
                 </h3>
                 <p className="text-base text-gray-600">
-                  Providing for families and contributing to community well-being
+                  Supporting livelihoods and contributing to community well-being across Maseru
                 </p>
               </div>
             </SlideIn>
@@ -502,13 +513,13 @@ export default function ImpactPage() {
             <SlideIn delay={0.6} direction="up">
               <div className="bg-white rounded-xl p-8 text-center hover:scale-105 transition-transform duration-300 hover:shadow-xl">
                 <div className="text-4xl font-extrabold text-primary-forest mb-3">
-                  100%
+                  80-100
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  Local Employment
+                  Growth Target
                 </h3>
                 <p className="text-base text-gray-600">
-                  All positions filled by Basotho, keeping economic benefits local
+                  Expanding to districts with new plant, growing supplier network and family impact
                 </p>
               </div>
             </SlideIn>
@@ -550,7 +561,9 @@ export default function ImpactPage() {
                 </div>
                 <p className="text-base text-gray-600 leading-relaxed mb-4">
                   We provide training, equipment support, and fair pricing to our 
-                  network of 60 suppliers, helping them build sustainable businesses.
+                  network of 60 suppliers in Maseru, helping them build sustainable businesses. 
+                  With our district expansion, we&apos;re growing to 80-100 suppliers, impacting 
+                  even more families across Lesotho.
                 </p>
                 <StaggeredList delay={0.4} staggerDelay={0.1} className="space-y-2">
                   {[
