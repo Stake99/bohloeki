@@ -104,10 +104,24 @@ export function Footer({ className = '' }: FooterProps) {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-neutral-700">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-neutral-400">
-              &copy; {currentYear} {companyInfo.name}. All rights reserved.
-            </p>
-            <p className="text-sm text-neutral-400">
+            <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-neutral-400">
+              <p>
+                &copy; {currentYear} {companyInfo.name}. All rights reserved.
+              </p>
+              <p className="hidden sm:block">•</p>
+              <p>
+                Developed by{' '}
+                <a
+                  href="https://smartmacmane.co.za/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent-gold hover:text-accent-goldLight transition-colors font-medium"
+                >
+                  Smart Macmane
+                </a>
+              </p>
+            </div>
+            <p className="text-sm text-neutral-400 text-center md:text-right">
               Committed to environmental sustainability and community
               empowerment.
             </p>

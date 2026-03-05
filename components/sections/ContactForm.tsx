@@ -135,24 +135,24 @@ export function ContactForm({ onSubmit, className = '' }: ContactFormProps) {
       {/* Success Message with aria-live */}
       {submitStatus === 'success' && (
         <div
-          className="p-4 bg-green-50 border border-green-200 rounded-lg"
+          className="p-4 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-700 rounded-lg"
           role="alert"
           aria-live="polite"
           aria-atomic="true"
         >
-          <p className="text-green-800 font-medium">{submitMessage}</p>
+          <p className="text-green-800 dark:text-green-200 font-medium">{submitMessage}</p>
         </div>
       )}
 
       {/* Error Message with aria-live */}
       {submitStatus === 'error' && (
         <div
-          className="p-4 bg-red-50 border border-red-200 rounded-lg"
+          className="p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-700 rounded-lg"
           role="alert"
           aria-live="assertive"
           aria-atomic="true"
         >
-          <p className="text-red-800 font-medium">{submitMessage}</p>
+          <p className="text-red-800 dark:text-red-200 font-medium">{submitMessage}</p>
         </div>
       )}
     </form>
@@ -189,17 +189,17 @@ function FormField({
   const errorId = `${inputId}-error`;
 
   const baseClasses =
-    'w-full px-4 py-3 border rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-forest focus:border-transparent';
+    'w-full px-4 py-3 border rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-forest focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400';
   const errorClasses = error
-    ? 'border-red-500 focus:ring-red-500'
-    : 'border-gray-300';
+    ? 'border-red-500 focus:ring-red-500 dark:border-red-400 dark:focus:ring-red-400'
+    : 'border-gray-300 dark:border-gray-600';
   const inputClasses = `${baseClasses} ${errorClasses}`;
 
   return (
     <div className="space-y-2">
-      <label htmlFor={inputId} className="block text-sm font-medium text-gray-900">
+      <label htmlFor={inputId} className="block text-sm font-medium text-gray-900 dark:text-white">
         {label}
-        {required && <span className="text-red-500 ml-1" aria-label="required">*</span>}
+        {required && <span className="text-red-500 dark:text-red-400 ml-1" aria-label="required">*</span>}
       </label>
       <Component
         id={inputId}
@@ -213,7 +213,7 @@ function FormField({
         className={inputClasses}
       />
       {error && (
-        <p id={errorId} className="text-sm text-red-600" role="alert">
+        <p id={errorId} className="text-sm text-red-600 dark:text-red-400" role="alert">
           {error}
         </p>
       )}

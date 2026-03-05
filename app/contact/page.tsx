@@ -17,7 +17,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Cinematic Parallax Hero */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-[40vh] max-h-[300px] sm:h-[50vh] sm:max-h-[400px] lg:h-[60vh] lg:max-h-none xl:min-h-screen xl:h-auto flex items-center justify-center overflow-hidden py-4 sm:py-8 lg:py-12 xl:py-20">
         {/* Parallax Layer 1 - Slowest Background */}
         <ParallaxLayer speed={0.1} className="absolute inset-0 -z-50">
           <div className="absolute inset-0 bg-gradient-to-br from-primary-forestDark via-black to-primary-forest" />
@@ -222,20 +222,21 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="text-center max-w-4xl mx-auto">
+              <div className="text-center max-w-4xl mx-auto px-4">
+                {/* Hide icon on very small screens, show on sm and up */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.1 }}
-                  className="mb-6"
+                  className="hidden sm:block mb-2 sm:mb-3 lg:mb-4 xl:mb-6"
                 >
-                  <div className="inline-flex items-center justify-center w-24 h-24 bg-accent-gold/20 backdrop-blur-md rounded-full border-2 border-accent-gold/30 mb-6">
-                    <Send className="w-12 h-12 text-accent-gold" />
+                  <div className="inline-flex items-center justify-center w-12 h-12 lg:w-16 lg:h-16 xl:w-24 xl:h-24 bg-accent-gold/20 backdrop-blur-md rounded-full border-2 border-accent-gold/30 mb-2 sm:mb-3 lg:mb-4 xl:mb-6">
+                    <Send className="w-6 h-6 lg:w-8 lg:h-8 xl:w-12 xl:h-12 text-accent-gold" />
                   </div>
                 </motion.div>
 
                 <motion.h1
-                  className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-6 text-white"
+                  className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold mb-2 sm:mb-3 lg:mb-4 xl:mb-6 text-white leading-tight"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
@@ -247,9 +248,9 @@ export default function ContactPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
-                  className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20"
+                  className="bg-white/10 backdrop-blur-md rounded-lg sm:rounded-xl lg:rounded-2xl p-2 sm:p-3 lg:p-4 xl:p-6 2xl:p-8 border border-white/20"
                 >
-                  <p className="text-lg lg:text-xl text-gray-100 leading-relaxed">
+                  <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-100 leading-snug sm:leading-relaxed">
                     Have questions about our services or want to become a supplier? 
                     We&apos;re here to help you make a sustainable impact
                   </p>
@@ -271,11 +272,11 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <GlassCard className="p-8 lg:p-10 bg-white/95 backdrop-blur-xl shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-accent-gold/20">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <GlassCard className="p-8 lg:p-10 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-accent-gold/20">
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
                   Send Us a Message
                 </h2>
-                <p className="text-base text-gray-600 mb-8">
+                <p className="text-base text-gray-600 dark:text-gray-300 mb-8">
                   Fill out the form below and we&apos;ll get back to you as soon as possible.
                 </p>
                 <ContactForm />
